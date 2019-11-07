@@ -11,7 +11,7 @@ public class Volvo240 extends Car {
 	private final static double trimFactor = 1.25;
 
 	/**
-	 *  Constructor for Volvo240, sets inital values
+	 *  Constructor for Volvo240, sets initial values
 	 */
 	public Volvo240() {
 		setColor(Color.BLACK);
