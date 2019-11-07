@@ -52,7 +52,8 @@ public class Saab95 extends Car implements Turbo{
      * @param amount an amount of how much the speed should increase (based on the accelerator)
      */
     public void incrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
+        if (getCurrentSpeed() + speedFactor() * amount > getCurrentSpeed())
+            setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
     }
 
     /**
@@ -61,6 +62,7 @@ public class Saab95 extends Car implements Turbo{
      * @param amount an amount of how much the speed should decrease (based on the brake)
      */
     public void decrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+        if (getCurrentSpeed() - speedFactor() * amount < getCurrentSpeed())
+            setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
     }
 }

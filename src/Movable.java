@@ -6,11 +6,10 @@
  */
 public interface Movable
 {
-    public void move(Direction direction);
     /**
      * Moves the object forward.
      */
-    public void move();
+    public void move(Direction direction);
 
     /**
      * Turns the object to the left depending on the current direction of the object.
