@@ -3,8 +3,8 @@ import java.awt.*;
 /**
  * Represents a Volvo240
  * @author  Alexander Jyborn
- * @version 1.0
- * @since   1.0
+ * @version 1.0.0
+ * @since   1.0.0
  */
 public class Volvo240 extends Car {
 
