@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b06e4615-1b9b-4fe0-ad3b-f9cd44a77aeb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab1/Saab95.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab1/Saab95.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/lab1/testBrake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/lab1/testBrake.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/testBrake.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/testBrake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/lab1/testDecrementSpeed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/lab1/testDecrementSpeed.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/lab1/testIncrementSpeed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/lab1/testIncrementSpeed.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/lab1/testSetCurrentSpeed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/lab1/testSetCurrentSpeed.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Saab95.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Saab95.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testDecrementSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/testDecrementSpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testIncrementSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/testIncrementSpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testSetCurrentSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/testSetCurrentSpeed.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,27 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.testBrake">
-    <configuration name="Cartests.testBrake" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Cartests" />
-      <option name="METHOD_NAME" value="testBrake" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Cartests.testBrakeSpeedShouldNotIncrease" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Cartests" />
-      <option name="METHOD_NAME" value="testBrakeSpeedShouldNotIncrease" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.testDecrementSpeed">
     <configuration name="testBrake" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="lab1" />
       <option name="PACKAGE_NAME" value="" />
@@ -85,11 +71,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="testDecrementSpeed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testDecrementSpeed" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testIncrementSpeed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testIncrementSpeed" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testSetCurrentSpeed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testSetCurrentSpeed" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testSetCurrentSpeed.testSetCurrentSpeedInterval" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testSetCurrentSpeed" />
+      <option name="METHOD_NAME" value="testSetCurrentSpeedInterval" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testDecrementSpeed" />
+        <item itemvalue="JUnit.testIncrementSpeed" />
+        <item itemvalue="JUnit.testSetCurrentSpeed" />
+        <item itemvalue="JUnit.testSetCurrentSpeed.testSetCurrentSpeedInterval" />
         <item itemvalue="JUnit.testBrake" />
-        <item itemvalue="JUnit.Cartests.testBrakeSpeedShouldNotIncrease" />
-        <item itemvalue="JUnit.Cartests.testBrake" />
       </list>
     </recent_temporary>
   </component>

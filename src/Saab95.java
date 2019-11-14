@@ -41,8 +41,7 @@ public class Saab95 extends Car implements Turbo{
      * @return the speed factor of the car
      */
     public double speedFactor(){
-        double turbo = 1;
-        if(turboOn) turbo = 1.3;
+        double turbo = turboOn ? 1.3 : 1;
         return getEnginePower() * 0.01 * turbo;
     }
 

@@ -1,26 +1,40 @@
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
-public class testDecrementSpeed
-{
-    private Car car;
+import java.util.Arrays;
+import java.util.Collection;
 
-    @Before
-    public void init()
-    {
-        car = new Volvo240();
-        car.startEngine();
+
+@RunWith(Parameterized.class)
+public class testDecrementSpeed {
+	private Car car;
+
+	@Before
+	public void init() {
+		car = new Volvo240();
+		car.startEngine();
+	}
+
+    @Parameterized.Parameters
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+                {-1, true}, {0, false}, {1, true}
+        });
     }
 
-    @Test
-    public void testDecreaseSpeed()
-    {
-        car.gas(1);
-        double speed = car.getCurrentSpeed();
-        car.brake(0.3);
+    @Parameterized.Parameter
+    public double amount;
+    @Parameterized.Parameter(1)
+    public boolean shouldUpdateSpeed;
 
-        Assert.assertTrue(speed > car.getCurrentSpeed());
-    }
+	@Test
+	public void testDecrementSpeedSaab95() {
+        double previousSpeed = car.getCurrentSpeed();
+        car.decrementSpeed(amount);
+        Assert.assertEquals(shouldUpdateSpeed, previousSpeed != car.getCurrentSpeed());
+	}
 
 }
