@@ -20,7 +20,11 @@ abstract public class Car implements Movable {
 	/**
 	 * Initializes the direction of the car.
 	 */
-	public Car() {
+	public Car(Color color, int nrDoors, double enginePower, String modelName) {
+		this.color = color;
+		this.nrDoors = nrDoors;
+		this.enginePower = enginePower;
+		this.modelName = modelName;
 		direction = Direction.NORTH;
 	}
 
@@ -82,42 +86,10 @@ abstract public class Car implements Movable {
 	}
 
 	/**
-	 * Sets the color attribute.
-	 * @param clr the color to set
-	 */
-	public void setColor(Color clr){
-		color = clr;
-	}
-
-	/**
-	 * Sets the nrDoors attribute.
-	 * @param doors the nrDoors to set
-	 */
-	public void setNrDoors(int doors) {
-		nrDoors = doors;
-	}
-
-	/**
-	 * Sets the modelName attribute.
-	 * @param name the modelName to set
-	 */
-	public void setModelName(String name) {
-		modelName = name;
-	}
-
-	/**
-	 * Sets the enginePower.
-	 * @param power the enginePower to set
-	 */
-	public void setEnginePower(double power) {
-		enginePower = power;
-	}
-
-	/**
 	 *
 	 * @param d the direction to set
 	 */
-	public void setDirection(Direction d) {
+	private void setDirection(Direction d) {
 		direction = d;
 	}
 
@@ -139,23 +111,38 @@ abstract public class Car implements Movable {
 	 * Sets the current speed if the value is in the interval [0, enginePower]
 	 * @param spd the currentSpeed to set
 	 */
-	public void setCurrentSpeed(double spd) {
+	private void setCurrentSpeed(double spd) {
 		if (spd > enginePower || spd < 0)
 			return;
 		currentSpeed = spd;
 	}
 
 	/**
-	 * Abstract method for incrementing speed
-	 * @param d the amount to increment speed with
+	 * Abstract method should calculate the cars speedFactor
+	 *
+	 * @return  the cars speedFactor
 	 */
-	public abstract void incrementSpeed(double d);
+	public abstract double speedFactor();
 
 	/**
-	 * Abstract method for decrementing speed
-	 * @param d the amount to decrement speed with
+	 * Increases the speed of the car based on the current speed and the speedFactor
+	 *
+	 * @param  amount an amount of how much the speed should increase based on the speedFactor
+	 * @see    #speedFactor()
 	 */
-	public abstract void decrementSpeed(double d);
+	private void incrementSpeed(double amount) {
+		setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower));
+	};
+
+	/**
+	 * Decreases the current speed of the car based on the current speed and the speed factor.
+	 *
+	 * @param amount an amount of how much the speed should decrease (based on the speedFactor)
+	 * @see    #speedFactor()
+	 */
+	private void decrementSpeed(double amount) {
+		setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, 0));
+	}
 
 	/**
 	 * Calls incrementSpeed as long as the supplied amount is in the interval [0, 1]
@@ -188,6 +175,7 @@ abstract public class Car implements Movable {
 
 	/**
 	 * Calls the move function with the left attribute
+	 *
 	 */
 	public void turnLeft() {
 		direction = direction.previous();

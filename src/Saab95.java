@@ -13,10 +13,7 @@ public class Saab95 extends Car implements Turbo{
      * Constructor for class Saab95. Automatically sets initial values for the object.
      */
     public Saab95(){
-        setColor(Color.RED);
-        setNrDoors(2);
-        setEnginePower(125);
-        setModelName("Saab95");
+        super(Color.RED, 2, 125, "Saab95");
         stopEngine();
     }
 
@@ -45,23 +42,4 @@ public class Saab95 extends Car implements Turbo{
         return getEnginePower() * 0.01 * turbo;
     }
 
-    /**
-     * Increases the current speed of the car based on the current speed and the speed factor.
-     *
-     * @param amount an amount of how much the speed should increase (based on the accelerator)
-     */
-    public void incrementSpeed(double amount){
-        if (getCurrentSpeed() + speedFactor() * amount > getCurrentSpeed())
-            setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
-    }
-
-    /**
-     * Decreases the current speed of the car based on the current speed and the speed factor.
-     *
-     * @param amount an amount of how much the speed should decrease (based on the brake)
-     */
-    public void decrementSpeed(double amount){
-        if (getCurrentSpeed() - speedFactor() * amount < getCurrentSpeed())
-            setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
-    }
 }

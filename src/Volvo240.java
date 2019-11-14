@@ -14,10 +14,7 @@ public class Volvo240 extends Car {
 	 *  Constructor for Volvo240, sets initial values
 	 */
 	public Volvo240() {
-		setColor(Color.BLACK);
-		setNrDoors(4);
-		setEnginePower(100);
-		setModelName("Volvo240");
+		super(Color.BLACK, 4, 100, "Volor240");
 		stopEngine();
 	}
 
@@ -30,18 +27,4 @@ public class Volvo240 extends Car {
 		return getEnginePower() * 0.01 * trimFactor;
 	}
 
-	/**
-	 * @param  amount an amount of how much the speed should increase based of the speedFactor
-	 * @see    #speedFactor()
-	 */
-	public void incrementSpeed(double amount) {
-		setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower()));
-	}
-
-	/**
-	 * @param amount an amount of how much the speed should decrease based on the speedFactor
-	 */
-	public void decrementSpeed(double amount) {
-	    setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, 0));
-	}
 }
