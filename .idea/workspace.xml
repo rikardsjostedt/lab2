@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b06e4615-1b9b-4fe0-ad3b-f9cd44a77aeb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/lab1/testBrake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/lab1/testBrake.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/testBrake.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/testBrake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/lab1/testGas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/lab1/testGas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testGas.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/testGas.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,21 +53,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.testBrake">
+  <component name="RunManager" selected="JUnit.testGas">
     <configuration name="All in lab1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="lab1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Cartests.testBrake" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Cartests" />
-      <option name="METHOD_NAME" value="testBrake" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -101,13 +91,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="testGas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testGas" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testGas" />
         <item itemvalue="JUnit.testBrake" />
         <item itemvalue="JUnit.testBrake.testBrakeInterval" />
         <item itemvalue="JUnit.All in lab1" />
         <item itemvalue="JUnit.Cartests.testBrakeSpeedShouldNotIncrease" />
-        <item itemvalue="JUnit.Cartests.testBrake" />
       </list>
     </recent_temporary>
   </component>
