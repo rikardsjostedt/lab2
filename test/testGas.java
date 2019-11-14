@@ -35,7 +35,7 @@ public class testGas
     public boolean didGas;
 
     @Test
-    public void testGasSpeedShouldNIncrease() {
+    public void testGasSpeedShouldIncrease() {
         car.setCurrentSpeed(speed);
         car.gas(gas);
         assertTrue(car.getCurrentSpeed() >= speed);
