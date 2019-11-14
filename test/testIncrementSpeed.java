@@ -21,7 +21,7 @@ public class testIncrementSpeed {
 	@Parameterized.Parameters
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][]{
-				{-1, false}, {0, false}, {1, true}
+				{-1, false}, {1.2, false}, {1, true}, {0, false}, {0.5, true}
 		});
 	}
 
@@ -33,7 +33,7 @@ public class testIncrementSpeed {
 	@Test
 	public void testIncrementSpeedSaab95() {
 		double previousSpeed = car.getCurrentSpeed();
-		car.incrementSpeed(amount);
+		car.gas(amount);
 		Assert.assertEquals(shouldUpdateSpeed, previousSpeed != car.getCurrentSpeed());
 	}
 }

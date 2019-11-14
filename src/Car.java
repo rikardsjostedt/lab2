@@ -86,14 +86,6 @@ abstract public class Car implements Movable {
 	}
 
 	/**
-	 *
-	 * @param d the direction to set
-	 */
-	private void setDirection(Direction d) {
-		direction = d;
-	}
-
-	/**
 	 * Starts the engine.
 	 */
 	public void startEngine(){
@@ -111,7 +103,7 @@ abstract public class Car implements Movable {
 	 * Sets the current speed if the value is in the interval [0, enginePower]
 	 * @param spd the currentSpeed to set
 	 */
-	private void setCurrentSpeed(double spd) {
+    public void setCurrentSpeed(double spd) {
 		if (spd > enginePower || spd < 0)
 			return;
 		currentSpeed = spd;
