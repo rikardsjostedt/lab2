@@ -1,4 +1,3 @@
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +9,13 @@ import java.util.Collection;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class Cartests {
+public class testBrake {
 
+	private Car car;
+	@Before
+	public void init() {
+		car = new Volvo240();
+	}
 	@Parameterized.Parameters
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] {
@@ -26,11 +30,20 @@ public class Cartests {
 
 	@Test
 	public void testBrakeSpeedShouldNotIncrease() {
-		double startSpeed = speed;
-		Car car = new Volvo240();
-		car.setCurrentSpeed(startSpeed);
+		car.setCurrentSpeed(speed);
 		car.brake(brake);
-		assertTrue(car.getCurrentSpeed() <= startSpeed);
+		assertTrue(car.getCurrentSpeed() <= speed);
+	}
+
+	@Test
+	public void testBrakeInterval() {
+		car.setCurrentSpeed(speed);
+		car.brake(brake);
+		if (brake > 1 || brake < 0) {
+			assertTrue(car.getCurrentSpeed() == speed);
+		} else {
+			assertTrue(car.getCurrentSpeed() <= speed);
+		}
 	}
 
 }
