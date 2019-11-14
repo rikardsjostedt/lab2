@@ -43,7 +43,7 @@ public class testBrake {
     public void testBrakeInterval() {
         car.setCurrentSpeed(speed);
         car.brake(brake);
-        assertEquals(car.getCurrentSpeed() != speed, didBrake);
+        assertEquals(didBrake, car.getCurrentSpeed() != speed);
     }
 
 }

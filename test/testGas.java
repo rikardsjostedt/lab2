@@ -45,6 +45,6 @@ public class testGas
     public void testGasInterval() {
         car.setCurrentSpeed(speed);
         car.gas(gas);
-        assertEquals(car.getCurrentSpeed() != speed, didGas);
+        assertEquals(didGas, car.getCurrentSpeed() != speed);
     }
 }
