@@ -14,7 +14,7 @@ public class Volvo240 extends Car {
 	 *  Constructor for Volvo240, sets initial values
 	 */
 	public Volvo240() {
-		super(Color.BLACK, 4, 100, "Volor240");
+		super(Color.BLACK, 4, 100, "Volvo240");
 		stopEngine();
 	}
 
