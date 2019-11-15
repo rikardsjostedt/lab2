@@ -15,35 +15,35 @@ public class testBrake {
     private Car car;
     @Before
     public void init() {
-        car = new Volvo240();
+        car = new Saab95();
     }
 
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                { 0, 0, false}, { 1, 0.5, true}, { 2, 1, true }, { 3, 0, false}, { 4, 0.3, true }, { 5, 5, false }, { 6, 8, false}
+                {0, false}, {0.5, true}, {1, true }, {0, false}, {0.3, true }, {5, false }, {8, false}
         });
     }
 
     @Parameterized.Parameter(0)
-    public double speed;
-    @Parameterized.Parameter(1)
     public double brake;
-    @Parameterized.Parameter(2)
+    @Parameterized.Parameter(1)
     public boolean didBrake;
 
     @Test
     public void testBrakeSpeedShouldNotIncrease() {
-        car.setCurrentSpeed(speed);
+        car.gas(0.5);
+        double prevSpeed = car.getCurrentSpeed();
         car.brake(brake);
-        assertTrue(car.getCurrentSpeed() <= speed);
+        assertTrue(car.getCurrentSpeed() <= prevSpeed);
     }
 
     @Test
     public void testBrakeInterval() {
-        car.setCurrentSpeed(speed);
+        car.gas(0.5);
+        double prevSpeed = car.getCurrentSpeed();
         car.brake(brake);
-        assertEquals(didBrake, car.getCurrentSpeed() != speed);
+        assertEquals(didBrake, car.getCurrentSpeed() != prevSpeed);
     }
 
 }

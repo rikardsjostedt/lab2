@@ -23,28 +23,28 @@ public class testGas
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                { 0, 0, false}, { 1, 0.5, true}, { 2, 1, true }, { 3, 0, false}, { 4, 0.3, true }, { 5, 5, false }, { 6, 8, false}, {3, 0.6, true}
+                {0, false}, {0.5, true}, {1, true }, {0, false}, {0.3, true }, {5, false }, {8, false}, {.6, true}
         });
     }
 
     @Parameterized.Parameter(0)
-    public double speed;
-    @Parameterized.Parameter(1)
     public double gas;
-    @Parameterized.Parameter(2)
+    @Parameterized.Parameter(1)
     public boolean didGas;
 
     @Test
     public void testGasSpeedShouldIncrease() {
-        car.setCurrentSpeed(speed);
+        car.startEngine();
+        double prevSpeed = car.getCurrentSpeed();
         car.gas(gas);
-        assertTrue(car.getCurrentSpeed() >= speed);
+        assertTrue(car.getCurrentSpeed() >= prevSpeed);
     }
 
     @Test
     public void testGasInterval() {
-        car.setCurrentSpeed(speed);
+        car.startEngine();
+        double prevSpeed = car.getCurrentSpeed();
         car.gas(gas);
-        assertEquals(didGas, car.getCurrentSpeed() != speed);
+        assertEquals(didGas, car.getCurrentSpeed() != prevSpeed);
     }
 }
