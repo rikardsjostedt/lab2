@@ -103,7 +103,7 @@ public abstract class Car implements Movable {
 	 * Sets the current speed if the value is in the interval [0, enginePower]
 	 * @param spd the currentSpeed to set
 	 */
-    public void setCurrentSpeed(double spd) {
+    private void setCurrentSpeed(double spd) {
 		if (spd > enginePower || spd < 0)
 			return;
 		currentSpeed = spd;
@@ -114,7 +114,7 @@ public abstract class Car implements Movable {
 	 *
 	 * @return  the cars speedFactor
 	 */
-	public abstract double speedFactor();
+	protected abstract double speedFactor();
 
 	/**
 	 * Increases the speed of the car based on the current speed and the speedFactor

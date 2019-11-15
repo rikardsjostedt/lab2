@@ -23,7 +23,7 @@ public class Volvo240 extends Car {
 	 *
 	 * @return  the cars speedFactor
 	 */
-	public double speedFactor() {
+	protected double speedFactor() {
 		return getEnginePower() * 0.01 * trimFactor;
 	}
 
