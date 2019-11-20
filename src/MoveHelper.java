@@ -1,17 +1,13 @@
-import com.sun.jdi.connect.Transport;
-
-import javax.xml.crypto.dsig.TransformService;
-
-public class MoveHelper implements Movable
+public class MoveHelper
 {
     private double x;
     private double y;
     private Direction direction;
     private double currentSpeed; // The current speed of the car
-    private Transportable entity;
+    private Movable entity;
 
 
-    public MoveHelper(int x, int y, Transportable entity)
+    public MoveHelper(int x, int y, Movable entity)
     {
         this.entity = entity;
         this.x = x;

@@ -1,4 +1,4 @@
-public abstract class Truck implements Transportable
+public abstract class Truck implements Movable,Transporter
 {
 
 	private MoveHelper moveHelper;

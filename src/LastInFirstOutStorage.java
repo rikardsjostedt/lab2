@@ -6,9 +6,9 @@ import java.util.Deque;
  * shelter.putAnimal(badBoyRex);
  */
 
-public class LastInFirstOutStorage extends Storage
+public class LastInFirstOutStorage<T extends Transportable> extends Storage
 {
-    private Deque<Transportable> storage = new ArrayDeque<>();
+    private Deque<T> storage = new ArrayDeque<>();
 
     public LastInFirstOutStorage(int length, int width, int capacity)
     {
@@ -17,13 +17,13 @@ public class LastInFirstOutStorage extends Storage
 
 
     //TODO ADD CHECKS TO MAKE SURE ENTITY ISNT LOADED SOMEWHERE ELSE, AND CHECK TO MAKE SURE ITS NEARBY
-    public void load(Transportable entity)
+    public void load(T entity)
     {
         storage.add(entity);
     }
 
     //TODO ADD UPDATING POSITION TO NEARBY LOCATION
-    public Transportable unload()
+    public T unload()
     {
         return storage.pop();
     }

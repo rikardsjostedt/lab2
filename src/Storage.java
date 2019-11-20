@@ -1,4 +1,4 @@
-public abstract class Storage implements Loadable
+public abstract class Storage
 {
     private int length;
     private int width;

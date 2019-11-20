@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Car implements Transportable {
+public abstract class Car implements Movable,Transportable {
 
 	private MoveHelper moveHelper;
 	private int maxSpeed;
