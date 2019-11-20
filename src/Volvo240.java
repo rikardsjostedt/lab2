@@ -13,9 +13,8 @@ public class Volvo240 extends Car {
 	/**
 	 *  Constructor for Volvo240, sets initial values
 	 */
-	public Volvo240() {
-		super(Color.BLACK, 4, 100, "Volvo240");
-		stopEngine();
+	public Volvo240(int x, int y) {
+		super(x, y, 100);
 	}
 
 	/**
@@ -23,8 +22,8 @@ public class Volvo240 extends Car {
 	 *
 	 * @return  the cars speedFactor
 	 */
-	protected double speedFactor() {
-		return getEnginePower() * 0.01 * trimFactor;
+	public double speedFactor() {
+		return getMaxSpeed() * 0.01 * trimFactor;
 	}
 
 }

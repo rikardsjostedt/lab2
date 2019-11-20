@@ -1,27 +1,39 @@
 import java.awt.*;
 
-public abstract class Car extends MotorizedVehicle {
+public abstract class Car implements Transportable {
 
-	private int nrDoors;
+	private MoveHelper moveHelper;
+	private int maxSpeed;
 
-	/**
-	 * Initializes the direction of the car.
-	 *
-	 * @param color
-	 * @param nrDoors
-	 * @param enginePower
-	 * @param modelName
-	 */
-	public Car(Color color, int nrDoors, double enginePower, String modelName, double width, double length) {
-		super(color, enginePower, modelName, width, length);
-		this.nrDoors = nrDoors;
+	public Car(int x, int y, int maxSpeed) {
+		this.moveHelper = new MoveHelper(x,y,this);
+		this.maxSpeed = maxSpeed;
 	}
 
 	/**
-	 *
-	 * @return the nrDoors attribute
+	 * Calls incrementSpeed as long as the supplied amount is in the interval [0, 1]
+	 * @param amount the amount to increase speed with
 	 */
-	public int getNrDoors(){
-		return nrDoors;
+	public void gas(double amount){
+		if (amount > 1 || amount < 0)
+			return;
+		moveHelper.incrementSpeed(amount);
+		moveHelper.move();
+	}
+
+	/**
+	 * Calls decrementSpeed as long as the supplied amount is in the interval [0, 1]
+	 * @param amount the amount to decrease speed with
+	 */
+	public void brake(double amount){
+		if (amount > 1 || amount < 0)
+			return;
+		moveHelper.decrementSpeed(amount);
+		moveHelper.move();
+	}
+
+	public int getMaxSpeed()
+	{
+		return maxSpeed;
 	}
 }

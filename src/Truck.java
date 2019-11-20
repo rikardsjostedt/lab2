@@ -1,26 +1,39 @@
-import java.awt.*;
+public abstract class Truck implements Transportable
+{
 
-public abstract class Truck extends MotorizedVehicle {
+	private MoveHelper moveHelper;
+	private int maxSpeed;
 
-	private Flatbed flatbed;
-	private final int nrDoors = 2;
-
-	public Truck(Color color, double enginePower, String modelName, double width, double length) {
-		super(color, enginePower, modelName, width, length);
-		this.flatbed = new Flatbed(this, width, length);
+	public Truck(int x, int y, int maxSpeed) {
+		this.moveHelper = new MoveHelper(x,y,this);
+		this.maxSpeed = maxSpeed;
+	}
+	//TODO THIS IS PARTLY DUPLICATED CODE!!! SHOULD THIS BE IN MOVEHELPER? (gas+brake)
+	/**
+	 * Calls incrementSpeed as long as the supplied amount is in the interval [0, 1]
+	 * @param amount the amount to increase speed with
+	 */
+	public void gas(double amount){
+		if (amount > 1 || amount < 0 )//TODO ADD CHECK FOR FLATBED DOWN
+			return;
+		moveHelper.incrementSpeed(amount);
+		moveHelper.move();
 	}
 
-	public boolean hasFlatbed() {
-		return this.flatbed != null;
+	/**
+	 * Calls decrementSpeed as long as the supplied amount is in the interval [0, 1]
+	 * @param amount the amount to decrease speed with
+	 */
+	public void brake(double amount){
+		if (amount > 1 || amount < 0)
+			return;
+		moveHelper.decrementSpeed(amount);
+		moveHelper.move();
 	}
 
-	@Override
-	public void move(Direction direction) {
-		if (getFlatbed().getCurrentTilt() == getFlatbed().getMinTilt())
-			super.move(direction);
+	public int getMaxSpeed()
+	{
+		return maxSpeed;
 	}
 
-	public Flatbed getFlatbed() {
-		return flatbed;
-	}
 }

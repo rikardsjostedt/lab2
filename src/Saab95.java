@@ -12,9 +12,8 @@ public class Saab95 extends Car implements Turbo{
     /**
      * Constructor for class Saab95. Automatically sets initial values for the object.
      */
-    public Saab95(){
-        super(Color.RED, 2, 125, "Saab95");
-        stopEngine();
+    public Saab95(int x, int y){
+        super(x, y, 125);
     }
 
     /**
@@ -37,9 +36,9 @@ public class Saab95 extends Car implements Turbo{
      *
      * @return the speed factor of the car
      */
-    protected double speedFactor(){
+    public double speedFactor(){
         double turbo = turboOn ? 1.3 : 1;
-        return getEnginePower() * 0.01 * turbo;
+        return getMaxSpeed() * 0.01 * turbo;
     }
 
 }
