@@ -1,13 +1,13 @@
 import java.awt.*;
 
-public abstract class Truck implements Movable {
+public abstract class Truck extends MotorizedVehicle {
 
 	private Flatbed flatbed;
+	private final int nrDoors = 2;
 
-	private double currentSpeed;
-
-	public Truck() {
-		this.flatbed = new Flatbed(this);
+	public Truck(Color color, double enginePower, String modelName, double width, double length) {
+		super(color, enginePower, modelName, width, length);
+		this.flatbed = new Flatbed(this, width, length);
 	}
 
 	public boolean hasFlatbed() {
@@ -16,17 +16,11 @@ public abstract class Truck implements Movable {
 
 	@Override
 	public void move(Direction direction) {
-		if (this.flatbed.getCurrentTilt() != 0)
-			return;
+		if (getFlatbed().getCurrentTilt() == getFlatbed().getMinTilt())
+			super.move(direction);
 	}
 
-	@Override
-	public void turnLeft() {
-
-	}
-
-	@Override
-	public void turnRight() {
-
+	public Flatbed getFlatbed() {
+		return flatbed;
 	}
 }

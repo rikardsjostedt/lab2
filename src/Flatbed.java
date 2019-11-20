@@ -3,26 +3,33 @@ public class Flatbed {
 	private final int minTilt = 0;
 	private final int maxTilt = 70;
 	private int currentTilt = 0;
-	private Truck parent;
+	private double width;
+	private double length;
+	private Truck truck;
 
-	public Flatbed(Truck parent) {
-		this.parent = parent;
+	public Flatbed(Truck truck, double width, double length) {
+		this.truck = truck;
 	}
 
-	public void rise() {
-		if (parent.getCurrentSpeed() != 0 || currentTilt >= maxTilt)
-			return;
-		//rise flatbed..
-	}
-
-	public void lower() {
-		if (parent.getCurrentSpeed() != 0 || currentTilt <= maxTilt)
-			return;
-		//lower flatbed..
+	public void tilt(int degree) {
+		if (truck.getCurrentSpeed() == 0 && degree <= maxTilt && degree >= minTilt) {
+			currentTilt = degree;
+		}
 	}
 
 	public int getCurrentTilt() {
 		return currentTilt;
 	}
 
+	protected int getMinTilt() {
+		return minTilt;
+	}
+
+	protected int getMaxTilt() {
+		return maxTilt;
+	}
+
+	protected Truck getTruck() {
+		return truck;
+	}
 }
