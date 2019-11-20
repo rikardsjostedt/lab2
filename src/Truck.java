@@ -4,6 +4,7 @@ public abstract class Truck implements Transportable
 	private MoveHelper moveHelper;
 	private int maxSpeed;
 
+
 	public Truck(int x, int y, int maxSpeed) {
 		this.moveHelper = new MoveHelper(x,y,this);
 		this.maxSpeed = maxSpeed;

@@ -1,7 +1,7 @@
-public interface Loadable<T> {
+public interface Loadable<T extends Transportable> {
 
 	void load(T t);
 
-	T unload(T t);
+	T unload();
 
 }
