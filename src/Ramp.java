@@ -1,37 +1,60 @@
-public abstract class Ramp {
+import java.util.Collection;
+import java.util.Deque;
+import java.util.List;
 
-	private final int closedAngle = 0;
-	private int openAngle;
-	private int currentAngle;
-	private Transporter attachedTo;
-	private Storage storage;
+public class Ramp implements Transporter<Car>{
 
-	public Ramp(int openAngle) {
-		this.currentAngle = 0;
-		this.openAngle = openAngle;
-	}
-	protected double speedOfAttachedTransporter()
-	{
-		return attachedTo.getCurrentSpeed();
-	}
+	private boolean isDown;
+	private Truck truck;
+	private Deque<Transportable> transportables;
+	private int capacity;
 
-	public void setCurrentAngle(int currentAngle)
-	{
-		this.currentAngle = currentAngle;
+	public Ramp(Truck t, int capacity) {
+		this.isDown = false;
+		this.capacity = capacity;
+		this.truck = t;
 	}
 
-	public int getCurrentAngle()
-	{
-		return currentAngle;
+	public boolean isDown() {
+		return isDown;
 	}
 
-	public int getOpenAngle()
-	{
-		return openAngle;
+	public void updateCargoPosition() {
+		for (Transportable t : transportables) {
+			t.moveWithTransporter(this);
+		}
 	}
 
-	public int getClosedAngle()
-	{
-		return closedAngle;
+	public double getX() {
+		return truck.getX();
+	}
+
+	public double getY() {
+		return truck.getY();
+	}
+
+	public void load(Transportable transportable) {
+		if(!transportable.isLoaded() && closeby(transportable))
+		{
+			transportables.addLast(transportable);
+			transportable.setLoaded(true);
+		}
+
+	}
+
+	private boolean closeby(Transportable t) {
+		if(t.getX() == truck.getX() && t.getY() == truck.getY())
+			return true;
+		return false;
+	}
+
+	public Transportable unload() {
+		Transportable removed =  transportables.removeLast();
+		removed.setLoaded(false);
+		return removed;
+	}
+
+	public Deque<Transportable> getStoredItems() {
+		return transportables;
 	}
 }

@@ -1,5 +1,9 @@
-public interface Transporter extends MovableStorage {
+public interface Transporter<T> extends IStorage<Transportable> {
 
-	
+	void updateCargoPosition();
+
+	double getX();
+
+	double getY();
 
 }

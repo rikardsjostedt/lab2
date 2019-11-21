@@ -6,7 +6,7 @@ public class MoveHelper {
 	private Movable entity;
 
 
-	public MoveHelper(int x, int y, Movable entity) {
+	public MoveHelper(double x, double y, Movable entity) {
 		this.entity = entity;
 		this.x = x;
 		this.y = y;
@@ -68,16 +68,8 @@ public class MoveHelper {
 		y += direction.getY() * currentSpeed;
 	}
 
-	/**
-	 * Moves the car in the reverse direction
-	 */
-	public void reverse() {
-		x -= direction.getX() * currentSpeed;
-		y -= direction.getY() * currentSpeed;
-	}
-
-	public void move(Direction direction) {
-
+	public double getCurrentSpeed() {
+		return currentSpeed;
 	}
 
 	/**
@@ -92,6 +84,11 @@ public class MoveHelper {
 	 */
 	public void turnRight() {
 		direction = direction.next();
+	}
+
+	public void moveTo(double x, double y) {
+		this.x = x;
+		this.y = y;
 	}
 
 }

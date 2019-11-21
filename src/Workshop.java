@@ -1,16 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Workshop<T extends Car> implements Storage<T> {
+public class Workshop<T extends Car> implements IStorage<T> {
 
 	private List<T> carsInWorkshop = new ArrayList<>();
 
-	@Override
 	public void load(T t) {
 		carsInWorkshop.add(t);
 	}
 
-	@Override
 	public T unload() {
 		if (!carsInWorkshop.isEmpty())
 			return carsInWorkshop.get(0);
