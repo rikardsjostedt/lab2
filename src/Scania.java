@@ -1,16 +1,39 @@
+/**
+ * Represents a Scania
+ * @author Rikard Sjöstedt
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class Scania extends Truck {
 
 	private Flatbed flatbed;
 
+	/**
+	 * Constructor for the Scania, sets initital values and calls super
+	 * @param x the x coordinate for the Scania to be placed
+	 * @param y the y coordinate for the Scania to be placed
+	 * @see Truck
+	 */
 	public Scania(int x, int y) {
 		super(x, y, 90);
 		this.flatbed = new Flatbed(this,0, 70);
 	}
 
+	/**
+	 * Calculates the Scania's speed factor
+	 *
+	 * @return the speed factor of the Scania
+	 */
 	public double speedFactor() {
 		return getMaxSpeed() * 0.01;
 	}
 
+	/**
+	 * Makes sure the flatbed is down and then calls super to gas
+	 *
+	 * @param amount the amount to increase speed with
+	 * @see Truck#gas(double)
+	 */
 	@Override
 	public void gas(double amount) {
 		if (flatbed.isDown())
@@ -18,6 +41,12 @@ public class Scania extends Truck {
 	}
 }
 
+/**
+ * Represents a Flatbed
+ * @author Rikard Sjöstedt
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 class Flatbed {
 
 	private int maxTilt;
@@ -25,6 +54,13 @@ class Flatbed {
 	private int currentTilt;
 	private Scania truck;
 
+	/**
+	 * Constructor for the Flatbed, sets initial values
+	 *
+	 * @param truck the truck to connect the flatbed to
+	 * @param minTilt the angle of the flatbed where it is down (initial value/drivable position)
+	 * @param maxTilt the maximum angle that the flatbed can tilt to
+	 */
 	public Flatbed(Scania truck, int minTilt, int maxTilt) {
 		this.minTilt = minTilt;
 		this.maxTilt = maxTilt;
@@ -32,13 +68,19 @@ class Flatbed {
 		this.truck = truck;
 	}
 
+	/**
+	 * Tells if the flatbed is down by comparing currentTilt with the flatbeds minTilt
+	 *
+	 * @return a boolean if the flatbed is down or not
+	 */
 	public boolean isDown() {
 		return currentTilt == minTilt;
 	}
 
 	/**
-	 * Stepper motor
-	 * @param tilt new tilt value for flatbed
+	 * Changes the tilt of the flatbed to the desired angle as long as it is within the flatbed's limitations
+	 * 
+	 * @param tilt the desired tilt of the flatbed
 	 */
 	public void changeTilt(int tilt) {
 		if (tilt <= maxTilt && tilt >= minTilt && truck.getCurrentSpeed() == 0)

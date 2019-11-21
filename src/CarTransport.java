@@ -38,7 +38,7 @@ public class CarTransport extends Truck implements Movable {
 	 * Calls super to decrementSpeed as long as the supplied amount is in the interval [0, 1] and the ramp is up. And it moves the vehicle forward with its content on the ramp.
 	 *
 	 * @param amount the amount to decrease the speed with
-	 * @see Truck#gas(double)
+	 * @see Truck#brake(double)
 	 */
 	@Override
 	public void brake(double amount) {
