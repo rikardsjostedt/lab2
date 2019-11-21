@@ -1,5 +1,3 @@
-import java.awt.*;
-
 /**
  * Represents a Saab 9.5
  * @author Rikard Sjöstedt
@@ -32,7 +30,7 @@ public class Saab95 extends Car implements Turbo{
 
 
     /**
-     * Calculates the cars' speed factor by checking if the turbo is on and then multiplying with the engine power.
+     * Calculates the cars' speed factor by checking if the turbo is on.
      *
      * @return the speed factor of the car
      */
