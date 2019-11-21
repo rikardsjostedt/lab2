@@ -11,7 +11,8 @@ enum Direction {
 	private static Direction[] vals = values(); //To avoid array copying
 
 	/**
-	 * Constrcutor for Direction
+	 * Constructor for Direction
+	 *
 	 * @param x the x attribute
 	 * @param y the y attribute
 	 */
@@ -22,6 +23,7 @@ enum Direction {
 
 	/**
 	 * Calculates the previous direction in an clockwise manner.
+	 *
 	 * @return the previous direction
 	 */
 	public Direction previous() {
@@ -30,6 +32,7 @@ enum Direction {
 
 	/**
 	 * Calculates the next direction in an clockwise manner
+	 *
 	 * @return the previous direction
 	 */
 	public Direction next() {
