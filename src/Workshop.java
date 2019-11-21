@@ -1,30 +1,25 @@
 import java.util.ArrayList;
+import java.util.List;
 
-public class Workshop<T extends Car> implements Storage<Car> {
+public class Workshop<T extends Car> implements Storage<T> {
 
-	private ArrayList<T> carsInWorkshop = new ArrayList<>();
+	private List<T> carsInWorkshop = new ArrayList<>();
 
 	@Override
-	public void load(Car c) {
-
+	public void load(T t) {
+		carsInWorkshop.add(t);
 	}
 
 	@Override
-	public Car unload(Car car) {
-		if (carsInWorkshop.contains(car)) {
-			carsInWorkshop.remove(car);
-			return car;
-		}
-		System.out.println("Car was not in workshop");
-		return null;
-	}
-
-	@Override
-	public Car unload() {
+	public T unload() {
 		if (!carsInWorkshop.isEmpty())
 			return carsInWorkshop.get(0);
 		System.out.println("Workshop empty!");
 		return null;
+	}
+
+	public List<T> getStoredItems() {
+		return carsInWorkshop;
 	}
 
 }
