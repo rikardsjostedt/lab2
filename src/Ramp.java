@@ -1,6 +1,8 @@
+import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.Deque;
 import java.util.List;
+
 /**
  * Represents a Ramp with storage connected to a truck
  * @author Rikard Sjöstedt
@@ -11,7 +13,7 @@ public class Ramp implements Transporter<Car>{
 
 	private boolean isDown;
 	private Truck truck;
-	private Deque<Transportable> transportables;
+	private Deque<Transportable> transportables = new ArrayDeque<>();
 	private int capacity;
 
 	/**
@@ -30,6 +32,14 @@ public class Ramp implements Transporter<Car>{
 	 */
 	public boolean isDown() {
 		return isDown;
+	}
+
+	public void up() {
+		this.isDown = false;
+	}
+
+	public void down() {
+		this.isDown = true;
 	}
 
 	/**
@@ -56,22 +66,21 @@ public class Ramp implements Transporter<Car>{
 	}
 
 	/**
-	 * Loads the storage of the ramp with entities that are 'Transportable' but checks that the entity isn't loaded somewhere else and that it is close to the truck it's getting loaded onto
+	 * Loads the storage of the ramp with entities that are 'Transportable',
+   * checks that the entity isn't loaded somewhere else and that it is close to the truck it's getting loaded onto
 	 *
 	 * @param transportable the entity to be loaded onto the Ramp/Storage of the ramp
-	 * @see Transportable
+   * @see Transportable
 	 */
 	public void load(Transportable transportable) {
-		if(!transportable.isLoaded() && closeby(transportable) && transportables.size() < capacity)
-		{
+		if(isDown && transportables.size() < capacity && !transportable.isLoaded() && closeby(transportable)) {
 			transportables.addLast(transportable);
 			transportable.setLoaded(true);
-			capacity++;
 		}
 	}
 
 	/**
-	 * Checks if the truck the ramp is connected to is close enough to the entity to be loaded
+	 * Checks if the truck that the ramp is connected to is close enough to the entity to be loaded
 	 *
 	 * @param t the entity to be loaded
 	 * @return a boolean if the entity is close enough to be loaded

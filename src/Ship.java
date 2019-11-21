@@ -57,11 +57,16 @@ public class Ship implements Transporter<Transportable>, Movable {
 	}
 
 	public void load(Transportable transportable) {
-		transportables.add(transportable);
+		if(!transportable.isLoaded()) {
+			transportables.add(transportable);
+			transportable.setLoaded(true);
+		}
 	}
 
 	public Transportable unload() {
-		return transportables.remove(0);
+		Transportable unloaded = transportables.remove(0);
+		unloaded.setLoaded(false);
+		return unloaded;
 	}
 
 	public Collection<Transportable> getStoredItems() {

@@ -17,7 +17,7 @@ public class testGas
 
     @Before
     public void init() {
-        car = new Volvo240();
+        car = new Volvo240(0, 0);
     }
 
     @Parameterized.Parameters

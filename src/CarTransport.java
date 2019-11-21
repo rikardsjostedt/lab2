@@ -45,4 +45,8 @@ public class CarTransport extends Truck implements Movable {
 		super.brake(amount);
 		ramp.updateCargoPosition();
 	}
+
+	public Ramp getRamp() {
+		return this.ramp;
+	}
 }
