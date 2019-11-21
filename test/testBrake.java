@@ -15,7 +15,7 @@ public class testBrake {
     private Car car;
     @Before
     public void init() {
-        car = new Saab95();
+        car = new Saab95(0, 0);
     }
 
     @Parameterized.Parameters

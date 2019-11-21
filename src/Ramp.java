@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.Deque;
 import java.util.List;
@@ -6,7 +7,7 @@ public class Ramp implements Transporter<Car>{
 
 	private boolean isDown;
 	private Truck truck;
-	private Deque<Transportable> transportables;
+	private Deque<Transportable> transportables = new ArrayDeque<>();
 	private int capacity;
 
 	public Ramp(Truck t, int capacity) {
@@ -19,6 +20,13 @@ public class Ramp implements Transporter<Car>{
 		return isDown;
 	}
 
+	public void up() {
+		this.isDown = false;
+	}
+
+	public void down() {
+		this.isDown = true;
+	}
 	public void updateCargoPosition() {
 		for (Transportable t : transportables) {
 			t.moveWithTransporter(this);
@@ -34,8 +42,7 @@ public class Ramp implements Transporter<Car>{
 	}
 
 	public void load(Transportable transportable) {
-		if(!transportable.isLoaded() && closeby(transportable))
-		{
+		if(isDown && transportables.size() < capacity && !transportable.isLoaded() && closeby(transportable)) {
 			transportables.addLast(transportable);
 			transportable.setLoaded(true);
 		}

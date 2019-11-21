@@ -97,4 +97,21 @@ public abstract class Car implements Movable, Transportable {
 	public double getY() {
 		return moveHelper.getY();
 	}
+
+	/**
+	 * Gets the currentSpeed
+	 *
+	 * @return the currentSpeed of the car
+	 */
+	public double getCurrentSpeed() {
+		return moveHelper.getCurrentSpeed();
+	}
+
+	/**
+	 * Starts the engine increasing the speed 0.1
+	 *
+	 */
+	public  void startEngine() {
+		moveHelper.incrementSpeed(0.1);
+	}
 }
