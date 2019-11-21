@@ -3,6 +3,10 @@ import java.util.Collection;
 import java.util.Deque;
 import java.util.List;
 
+/**
+ * A class representing a transporter with a ramp that can be either up or down
+ *
+ */
 public class Ramp implements Transporter<Car>{
 
 	private boolean isDown;
@@ -27,6 +31,11 @@ public class Ramp implements Transporter<Car>{
 	public void down() {
 		this.isDown = true;
 	}
+
+	/**
+	 * Updates the position of all transportables stored on the ramp
+	 *
+	 */
 	public void updateCargoPosition() {
 		for (Transportable t : transportables) {
 			t.moveWithTransporter(this);
@@ -41,6 +50,11 @@ public class Ramp implements Transporter<Car>{
 		return truck.getY();
 	}
 
+	/**
+	 * Loads an object with the type transportable onto the ramp
+	 *
+	 * @param transportable the transportable unit to be transported
+	 */
 	public void load(Transportable transportable) {
 		if(isDown && transportables.size() < capacity && !transportable.isLoaded() && closeby(transportable)) {
 			transportables.addLast(transportable);
@@ -49,12 +63,23 @@ public class Ramp implements Transporter<Car>{
 
 	}
 
+	/**
+	 * Checks if the transportable about to be loaded is close to the ramp
+	 *
+	 * @param t
+	 * @return if the transportable is closeby
+	 */
 	private boolean closeby(Transportable t) {
 		if(t.getX() == truck.getX() && t.getY() == truck.getY())
 			return true;
 		return false;
 	}
 
+	/**
+	 * Unloads the transportable last loaded onto the ramp
+	 *
+	 * @return the last transportable loaded onto the ramp
+	 */
 	public Transportable unload() {
 		Transportable removed =  transportables.removeLast();
 		removed.setLoaded(false);
