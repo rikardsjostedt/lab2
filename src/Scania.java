@@ -10,4 +10,9 @@ public class Scania extends Truck {
 	public double speedFactor() {
 		return getMaxSpeed() * 0.01;
 	}
+
+	@Override
+	public int getCurrentSpeed() {
+		return 0;
+	}
 }

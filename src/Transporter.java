@@ -1,4 +1,3 @@
-public interface Transporter
-{
-    int getCurrentSpeed();
+public interface Transporter {
+	int getCurrentSpeed();
 }
