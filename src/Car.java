@@ -23,6 +23,11 @@ public abstract class Car implements Movable, Transportable {
 		this.loaded = false;
 	}
 
+	public void move()
+	{
+		moveHelper.move();
+	}
+
 	/**
 	 * Calls incrementSpeed as long as the supplied amount is in the interval [0, 1] and moves the car forward
 	 *

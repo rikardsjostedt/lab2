@@ -16,4 +16,9 @@ public interface Movable {
 	 * @return the speed factor for the entity
 	 */
 	double speedFactor();
+
+	/**
+	 * Moves the entity
+	 */
+	void move();
 }

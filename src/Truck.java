@@ -33,6 +33,11 @@ public abstract class Truck implements Movable {
 		moveHelper.move();
 	}
 
+	public void move()
+	{
+		moveHelper.move();
+	}
+
 	public int getMaxSpeed() {
 		return maxSpeed;
 	}

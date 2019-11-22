@@ -39,6 +39,14 @@ public class Scania extends Truck {
 		if (flatbed.isDown())
 			super.gas(amount);
 	}
+
+	/**
+	 * @return the flatbed of the truck
+	 */
+	public Flatbed getFlatbed()
+	{
+		return flatbed;
+	}
 }
 
 /**
@@ -79,11 +87,19 @@ class Flatbed {
 
 	/**
 	 * Changes the tilt of the flatbed to the desired angle as long as it is within the flatbed's limitations
-	 * 
+	 *
 	 * @param tilt the desired tilt of the flatbed
 	 */
 	public void changeTilt(int tilt) {
 		if (tilt <= maxTilt && tilt >= minTilt && truck.getCurrentSpeed() == 0)
 			currentTilt = tilt;
+	}
+
+	/**
+	 * @return the current tilt attribute
+	 */
+	public int getCurrentTilt()
+	{
+		return currentTilt;
 	}
 }
