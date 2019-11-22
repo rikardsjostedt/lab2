@@ -1,3 +1,5 @@
+import java.awt.*;
+
 /**
  * Represents a Saab 9.5
  * @author Rikard Sjöstedt
@@ -9,9 +11,11 @@ public class Saab95 extends Car implements Turbo{
 
     /**
      * Constructor for class Saab95. Automatically sets initial values for the object.
+     * @param x the x-coordinate of the Saab95
+     * @param y the y-coordinate of the Saab95
      */
-    public Saab95(int x, int y){
-        super(x, y, 125);
+    public Saab95(double x, double y) {
+        super(Color.BLUE, 4, 180, "Saab95", x, y);
     }
 
     /**
@@ -34,7 +38,7 @@ public class Saab95 extends Car implements Turbo{
      *
      * @return the speed factor of the car
      */
-    public double speedFactor(){
+    public double speedFactor() {
         double turbo = turboOn ? 1.3 : 1;
         return getMaxSpeed() * 0.01 * turbo;
     }

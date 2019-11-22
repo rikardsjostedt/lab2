@@ -1,3 +1,5 @@
+import java.awt.*;
+
 /**
  * Represents a Scania
  * @author Rikard Sjöstedt
@@ -15,7 +17,7 @@ public class Scania extends Truck {
 	 * @see Truck
 	 */
 	public Scania(int x, int y) {
-		super(x, y, 90);
+		super(Color.BLUE, 2, 90, "ScaniaTruckN", x, y);
 		this.flatbed = new Flatbed(this,0, 70);
 	}
 

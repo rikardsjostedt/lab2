@@ -1,60 +1,22 @@
-public abstract class Truck implements Movable {
+import java.awt.*;
 
-	private MoveHelper moveHelper;
-	private int maxSpeed;
-
-
-	public Truck(double x, double y, int maxSpeed) {
-		this.moveHelper = new MoveHelper(x, y, this);
-		this.maxSpeed = maxSpeed;
-	}
+public abstract class Truck extends Vehicle {
 
 	/**
-	 * Calls incrementSpeed as long as the supplied amount is in the interval [0, 1]
 	 *
-	 * @param amount the amount to increase speed with
+	 * @param color the color of the vehicle
+	 * @param nrDoors the number of doors for the vehicle
+	 * @param maxSpeed the maximum speed attainable for the vehicle
+	 * @param modelName the model name of the vehicle
+	 * @param x the x-coordinate of the vehicle
+	 * @param y the y-coordinate of the vehicle
 	 */
-	public void gas(double amount) {
-		if (amount > 1 || amount < 0)
-			return;
-		moveHelper.incrementSpeed(amount);
-		moveHelper.move();
-	}
-
-	/**
-	 * Calls decrementSpeed as long as the supplied amount is in the interval [0, 1]
-	 *
-	 * @param amount the amount to decrease speed with
-	 */
-	public void brake(double amount) {
-		if (amount > 1 || amount < 0)
-			return;
-		moveHelper.decrementSpeed(amount);
-		moveHelper.move();
-	}
-
-	public void move()
-	{
-		moveHelper.move();
-	}
-
-	public int getMaxSpeed() {
-		return maxSpeed;
-	}
-
-	public double getX() {
-		return moveHelper.getX();
-	}
-
-	public double getY() {
-		return moveHelper.getY();
-	}
-
-	public double getCurrentSpeed() {
-		return moveHelper.getCurrentSpeed();
+	public Truck(Color color, int nrDoors, double maxSpeed, String modelName, double x, double y) {
+		super(color, nrDoors, maxSpeed, modelName, x, y);
 	}
 
 	public double speedFactor() {
 		return 1;
 	}
+
 }

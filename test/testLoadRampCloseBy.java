@@ -17,7 +17,7 @@ public class testLoadRampCloseBy {
 
     @Before
     public void init() {
-        ct = new CarTransport(ctX, ctY, 100);
+        ct = new CarTransport(ctX, ctY);
         ct.getRamp().down();
     }
 

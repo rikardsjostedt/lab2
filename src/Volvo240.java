@@ -13,8 +13,8 @@ public class Volvo240 extends Car {
 	/**
 	 *  Constructor for Volvo240, sets initial values
 	 */
-	public Volvo240(int x, int y) {
-		super(x, y, 100);
+	public Volvo240(double x, double y) {
+		super(Color.RED, 4, 145, "TvåFörti", x, y);
 	}
 
 	/**

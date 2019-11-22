@@ -8,17 +8,27 @@
  */
 public interface Movable {
 	/**
-	 * @return the maximum speed for the entity
+	 * @return the maximum speed
 	 */
-	int getMaxSpeed();
+	double getMaxSpeed();
 
 	/**
-	 * @return the speed factor for the entity
+	 * @return the speed factor
 	 */
 	double speedFactor();
 
 	/**
-	 * Moves the entity
+	 * Moves the movable entity
 	 */
 	void move();
+
+	/**
+	 * Turns the entity to the left based on the current direction
+	 */
+	void turnLeft();
+
+	/**
+	 * Turns the entity to the right based on the current direction
+	 */
+	void turnRight();
 }

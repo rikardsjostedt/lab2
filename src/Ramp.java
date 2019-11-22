@@ -9,12 +9,12 @@ import java.util.List;
  * @version 1.0.0
  * @since 1.0.0
  */
-public class Ramp implements Transporter<Car>{
+public class Ramp<T extends Transportable> implements Transporter<T>{
 
 	private boolean isDown;
 	private Truck truck;
-	private Deque<Transportable> transportables = new ArrayDeque<>();
-	private int capacity;
+	private Deque<T> transportables = new ArrayDeque<>();
+	private final int capacity;
 
 	/**
 	 * Constructor for the Ramp, connects the ramp to a truck and sets initial values.
@@ -46,7 +46,7 @@ public class Ramp implements Transporter<Car>{
 	 * Updates the coordinates for the ramp's storage
 	 */
 	public void updateCargoPosition() {
-		for (Transportable t : transportables) {
+		for (T t : transportables) {
 			t.moveWithTransporter(this);
 		}
 	}
@@ -72,7 +72,7 @@ public class Ramp implements Transporter<Car>{
 	 * @param transportable the entity to be loaded onto the Ramp/Storage of the ramp
    * @see Transportable
 	 */
-	public void load(Transportable transportable) {
+	public void load(T transportable) {
 		if(isDown && transportables.size() < capacity && !transportable.isLoaded() && closeby(transportable)) {
 			transportables.addLast(transportable);
 			transportable.setLoaded(true);
@@ -85,7 +85,7 @@ public class Ramp implements Transporter<Car>{
 	 * @param t the entity to be loaded
 	 * @return a boolean if the entity is close enough to be loaded
 	 */
-	private boolean closeby(Transportable t) {
+	private boolean closeby(T t) {
 		return t.getX() == truck.getX() && t.getY() == truck.getY();
 	}
 
@@ -94,17 +94,16 @@ public class Ramp implements Transporter<Car>{
 	 *
 	 * @return the entity that was unloaded
 	 */
-	public Transportable unload() {
-		Transportable removed =  transportables.removeLast();
+	public T unload() {
+		T removed =  transportables.removeLast();
 		removed.setLoaded(false);
-		capacity--;
 		return removed;
 	}
 
 	/**
 	 * @return the stored items on the ramp/storage of the ramp
 	 */
-	public Deque<Transportable> getStoredItems() {
+	public Deque<T> getStoredItems() {
 		return transportables;
 	}
 }

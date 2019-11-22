@@ -13,12 +13,12 @@ import static org.junit.Assert.assertTrue;
 public class testLoadRampUpAndDown {
 
     private CarTransport ct;
-    private static int ctX = 0;
-    private static int ctY = 0;
+    private static double ctX = 0;
+    private static double ctY = 0;
 
     @Before
     public void init() {
-        ct = new CarTransport(ctX, ctY, 100);
+        ct = new CarTransport(ctX, ctY);
     }
 
     @Parameterized.Parameters

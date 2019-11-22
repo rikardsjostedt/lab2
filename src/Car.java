@@ -1,62 +1,28 @@
+import java.awt.*;
+
 /**
  * Represents the concept of a car
+ *
  * @author Rikard Sjöstedt
  * @version 1.0.0
  * @since 1.0.0
  */
-public abstract class Car implements Movable, Transportable {
+public abstract class Car extends Vehicle implements Transportable {
 
-	private MoveHelper moveHelper;
-	private int maxSpeed;
 	private boolean loaded;
 
 	/**
-	 * Constructor for class Car, sets inital values and calls super.
 	 *
-	 * @param x the x coordinate for the car to be placed
-	 * @param y the y coordinate for the car to be placed
-	 * @param maxSpeed the maximum speed the car can achieve
+	 * @param color the color of the car
+	 * @param nrDoors the number of doors for the car
+	 * @param maxSpeed the maximum speed attainable for the car
+	 * @param modelName the model name of the car
+	 * @param x the x-coordinate of the car
+	 * @param y the y-coordinate of the car
 	 */
-	public Car(int x, int y, int maxSpeed) {
-		this.moveHelper = new MoveHelper(x, y, this);
-		this.maxSpeed = maxSpeed;
+	public Car(Color color, int nrDoors, double maxSpeed, String modelName, double x, double y) {
+		super(color, nrDoors, maxSpeed, modelName, x, y);
 		this.loaded = false;
-	}
-
-	public void move()
-	{
-		moveHelper.move();
-	}
-
-	/**
-	 * Calls incrementSpeed as long as the supplied amount is in the interval [0, 1] and moves the car forward
-	 *
-	 * @param amount the amount to increase the speed with
-	 */
-	public void gas(double amount) {
-		if (amount > 1 || amount < 0)
-			return;
-		moveHelper.incrementSpeed(amount);
-		moveHelper.move();
-	}
-
-	/**
-	 * Calls decrementSpeed as long as the supplied amount is in the interval [0, 1]
-	 *
-	 * @param amount the amount to decrease the speed with
-	 */
-	public void brake(double amount) {
-		if (amount > 1 || amount < 0)
-			return;
-		moveHelper.decrementSpeed(amount);
-		moveHelper.move();
-	}
-
-	/**
-	 * @return the maxSpeed attribute
-	 */
-	public int getMaxSpeed() {
-		return maxSpeed;
 	}
 
 	/**
@@ -65,8 +31,8 @@ public abstract class Car implements Movable, Transportable {
 	 * @param transporter the transporter the car is loaded onto
 	 */
 	public void moveWithTransporter(Transporter transporter) {
-		if(loaded)
-			moveHelper.moveTo(transporter.getX(), transporter.getY());
+		if (loaded)
+			moveTo(transporter.getX(), transporter.getY());
 	}
 
 	/**
@@ -85,38 +51,4 @@ public abstract class Car implements Movable, Transportable {
 		return loaded;
 	}
 
-	/**
-	 * Gets the x attribute for the cars' moveHelper
-	 *
-	 * @return the x attribute
-	 */
-	public double getX() {
-		return moveHelper.getX();
-	}
-
-	/**
-	 * Gets the y attribute for the cars' moveHelper
-	 *
-	 * @return the y attribute
-	 */
-	public double getY() {
-		return moveHelper.getY();
-	}
-
-	/**
-	 * Gets the currentSpeed
-	 *
-	 * @return the currentSpeed of the car
-	 */
-	public double getCurrentSpeed() {
-		return moveHelper.getCurrentSpeed();
-	}
-
-	/**
-	 * Starts the engine increasing the speed 0.1
-	 *
-	 */
-	public  void startEngine() {
-		moveHelper.incrementSpeed(0.1);
-	}
 }

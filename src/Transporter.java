@@ -3,7 +3,7 @@
  *
  * @param <T>
  */
-public interface Transporter<T> extends IStorage<Transportable> {
+public interface Transporter<T extends Transportable> extends IStorage<T> {
 
 	/**
 	 * Method for updating the position of the Transportables loaded in the Transporters storage
@@ -11,8 +11,24 @@ public interface Transporter<T> extends IStorage<Transportable> {
 	 */
 	void updateCargoPosition();
 
+	/**
+	 *
+	 * @return the x attribute of the transporter
+	 */
 	double getX();
 
+	/**
+	 *
+	 * @return the y attribute of the transporter
+	 */
 	double getY();
+
+	/**
+	 * Adds the
+	 * @param t the entity to be loaded
+	 */
+	void load(T t);
+
+	T unload ();
 
 }
