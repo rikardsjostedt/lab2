@@ -12,7 +12,7 @@ public abstract class Car extends Vehicle implements Transportable {
 	private boolean loaded;
 
 	/**
-	 *
+	 *ge
 	 * @param color the color of the car
 	 * @param nrDoors the number of doors for the car
 	 * @param maxSpeed the maximum speed attainable for the car

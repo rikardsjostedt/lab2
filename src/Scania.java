@@ -59,8 +59,8 @@ public class Scania extends Truck {
  */
 class Flatbed {
 
-	private int maxTilt;
-	private int minTilt;
+	public final int maxTilt;
+	public final int minTilt;
 	private int currentTilt;
 	private Scania truck;
 

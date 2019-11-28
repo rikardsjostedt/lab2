@@ -74,12 +74,23 @@ public abstract class Vehicle implements Movable {
 		move();
 	}
 
+	/**
+	 * Turns the vehicle around by turning twice
+	 */
+	public void turnAround() {
+		direction = direction.next().next();
+	}
+
 
 	/**
 	 * Starts the engine increasing the speed 0.1
 	 */
 	public void startEngine() {
 		incrementSpeed(0.1);
+	}
+
+	public void stopEngine() {
+		setCurrentSpeed(0);
 	}
 
 	/**

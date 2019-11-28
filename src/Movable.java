@@ -4,7 +4,6 @@
  * @author Rikard Sjöstedt
  * @version 1.0.0
  * @since 1.0.0
- * @see MoveHelper
  */
 public interface Movable {
 	/**
