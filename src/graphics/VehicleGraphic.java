@@ -5,15 +5,17 @@ import models.Vehicle;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class VehicleGraphic {
 	private BufferedImage image;
-	private Vehicle vehicle;
+	private final Vehicle vehicle;
 
-	public VehicleGraphic(Vehicle vehicle, String imagePath) {
+	public VehicleGraphic(Vehicle vehicle, String image) {
 		this.vehicle = vehicle;
 		try {
-			this.image = ImageIO.read(DrawPanel.class.getResourceAsStream(imagePath));
+			System.out.println(String.format("../pics/%s", image));
+			this.image = ImageIO.read(DrawPanel.class.getResourceAsStream(String.format("../pics/%s", image)));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

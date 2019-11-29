@@ -59,7 +59,10 @@ public class VehicleController {
 		}
 	}
 
-	// Calls the gas method for each car once
+	/**
+	 * Calls the gas method for each vehicle with the supplied amount
+	 * @param amount
+	 */
 	void gas(int amount) {
 		double gas = ((double) amount) / 100;
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
@@ -67,6 +70,10 @@ public class VehicleController {
 		}
 	}
 
+	/**
+	 * Calls the brake method for each vehicle with the supplied amount
+	 * @param amount
+	 */
 	void brake(int amount) {
 		double brake = ((double) amount) / 100;
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
@@ -74,18 +81,27 @@ public class VehicleController {
 		}
 	}
 
+	/**
+	 * Starts all vehicles
+	 */
 	void startEngine() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
 			vehicleGraphic.getVehicle().startEngine();
 		}
 	}
 
+	/**
+	 * Stops all vehicles
+	 */
 	void stopEngine() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
 			vehicleGraphic.getVehicle().stopEngine();
 		}
 	}
 
+	/**
+	 * Turns on turbo for all applicable vehicles
+	 */
 	void turboOn() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
 			Vehicle vehicle = vehicleGraphic.getVehicle();
@@ -95,6 +111,9 @@ public class VehicleController {
 		}
 	}
 
+	/**
+	 * Turns off turbo for all applicable vehicles
+	 */
 	void turboOff() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
 			Vehicle vehicle = vehicleGraphic.getVehicle();
@@ -104,6 +123,9 @@ public class VehicleController {
 		}
 	}
 
+	/**
+	 * Lifts the flatbed for all applicable vehicles
+	 */
 	void liftBed() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
 			Vehicle vehicle = vehicleGraphic.getVehicle();
@@ -114,6 +136,9 @@ public class VehicleController {
 		}
 	}
 
+	/**
+	 * Lowers the flatbed for all applicable vehicles
+	 */
 	void lowerBed() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
 			Vehicle vehicle = vehicleGraphic.getVehicle();

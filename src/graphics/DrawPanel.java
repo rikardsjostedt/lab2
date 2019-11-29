@@ -25,9 +25,9 @@ public class DrawPanel extends JPanel {
 		this.setPreferredSize(new Dimension(x, y));
 		this.setBackground(Color.green);
 
-		vehicleGraphics.add(new VehicleGraphic(new Volvo240(0, 0), "pics/Volvo240.jpg"));
-		vehicleGraphics.add(new VehicleGraphic(new Saab95(0, 100), "pics/Saab95.jpg"));
-		vehicleGraphics.add(new VehicleGraphic(new Scania(0, 200), "pics/Scania.jpg"));
+		vehicleGraphics.add(new VehicleGraphic(new Volvo240(0, 0), "Volvo240.jpg"));
+		vehicleGraphics.add(new VehicleGraphic(new Saab95(0, 100), "Saab95.jpg"));
+		vehicleGraphics.add(new VehicleGraphic(new Scania(0, 200), "Scania.jpg"));
 	}
 
 	// This method is called each time the panel updates/refreshes/repaints itself
