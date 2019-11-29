@@ -1,3 +1,5 @@
+package models;
+
 /**
  * Methods required for vehicles that implements a turbo in the engine system.
  *

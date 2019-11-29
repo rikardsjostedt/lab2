@@ -1,3 +1,5 @@
+package models;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,7 @@ public class Workshop<T extends Car> implements IStorage<T> {
 	public T unload() {
 		if (!carsInWorkshop.isEmpty())
 			return carsInWorkshop.get(0);
-		System.out.println("Workshop empty!");
+		System.out.println("models.Workshop empty!");
 		return null;
 	}
 

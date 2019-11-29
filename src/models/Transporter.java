@@ -1,5 +1,7 @@
+package models;
+
 /**
- * Interface for a Transporter of something, has a storage of objects implementing Transportable
+ * Interface for a models.Transporter of something, has a storage of objects implementing models.Transportable
  *
  * @param <T>
  */

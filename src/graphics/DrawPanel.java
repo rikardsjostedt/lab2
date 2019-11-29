@@ -1,18 +1,18 @@
+package graphics;
+
+import models.Saab95;
+import models.Scania;
+import models.Volvo240;
+
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
 public class DrawPanel extends JPanel {
 
-	// Just a single image, TODO: Generalize
 	private List<VehicleGraphic> vehicleGraphics = new ArrayList<>();
 
 	public List<VehicleGraphic> getVehicleGraphics() {
@@ -31,12 +31,11 @@ public class DrawPanel extends JPanel {
 	}
 
 	// This method is called each time the panel updates/refreshes/repaints itself
-	// TODO: Change to suit your needs.
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		for (VehicleGraphic vehicle : vehicleGraphics) {
-		    g.drawImage(vehicle.getImage(), (int) vehicle.getCar().getX(), (int) vehicle.getCar().getY(), null);
+		    g.drawImage(vehicle.getImage(), vehicle.getX(), vehicle.getY(), null);
         }
 	}
 }

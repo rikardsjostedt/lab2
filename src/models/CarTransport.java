@@ -1,7 +1,9 @@
+package models;
+
 import java.awt.*;
 
 /**
- * Represents a CarTransport
+ * Represents a models.CarTransport
  * @author Rikard Sjöstedt
  * @version 1.0.0
  * @since 1.0.0
@@ -11,7 +13,7 @@ public class CarTransport extends Truck {
 	private Ramp<Car> ramp;
 
 	/**
-	 * Constructor for class CarTransport, sets initial values and calls super. Also creates a ramp for the vehicle with storage.
+	 * Constructor for class models.CarTransport, sets initial values and calls super. Also creates a ramp for the vehicle with storage.
 	 *
 	 * @param x the x-coordinate of the car transport
 	 * @param y the y-coordinate of the car transport

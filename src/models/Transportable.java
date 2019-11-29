@@ -1,3 +1,5 @@
+package models;
+
 /**
  * Methods required by anything that should be able to be transported
  *

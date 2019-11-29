@@ -1,6 +1,8 @@
+package models;
+
 import java.util.Collection;
 /**
- * Methods required for classes that uses storage of other items of any type, mostly used for Transportable
+ * Methods required for classes that uses storage of other items of any type, mostly used for models.Transportable
  *
  * @author Rikard Sjöstedt
  * @version 1.0.0

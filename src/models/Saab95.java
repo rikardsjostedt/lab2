@@ -1,3 +1,5 @@
+package models;
+
 import java.awt.*;
 
 /**
@@ -10,12 +12,12 @@ public class Saab95 extends Car implements Turbo{
     private boolean turboOn;
 
     /**
-     * Constructor for class Saab95. Automatically sets initial values for the object.
-     * @param x the x-coordinate of the Saab95
-     * @param y the y-coordinate of the Saab95
+     * Constructor for class models.Saab95. Automatically sets initial values for the object.
+     * @param x the x-coordinate of the models.Saab95
+     * @param y the y-coordinate of the models.Saab95
      */
     public Saab95(double x, double y) {
-        super(Color.BLUE, 4, 180, "Saab95", x, y);
+        super(Color.BLUE, 4, 180, "models.Saab95", x, y);
     }
 
     /**

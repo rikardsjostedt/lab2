@@ -1,10 +1,9 @@
-import com.sun.jdi.connect.Transport;
+import models.Saab95;
+import models.Ship;
+import models.Transportable;
+import models.Volvo240;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runners.Parameterized;
-
-import java.util.Arrays;
-import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

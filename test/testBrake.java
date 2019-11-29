@@ -1,3 +1,5 @@
+import models.Car;
+import models.Saab95;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

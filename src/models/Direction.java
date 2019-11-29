@@ -1,7 +1,9 @@
+package models;
+
 /**
  * Represents the available directions
  */
-enum Direction {
+public enum Direction {
 	NORTH(0, 1),
 	EAST(1, 0),
 	SOUTH(0, -1),
@@ -11,7 +13,7 @@ enum Direction {
 	private static Direction[] vals = values(); //To avoid array copying
 
 	/**
-	 * Constructor for Direction
+	 * Constructor for models.Direction
 	 *
 	 * @param x the x attribute
 	 * @param y the y attribute

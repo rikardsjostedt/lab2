@@ -1,3 +1,7 @@
+import models.CarTransport;
+import models.Saab95;
+import models.Transportable;
+import models.Volvo240;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

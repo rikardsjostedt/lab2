@@ -1,10 +1,10 @@
+package models;
+
 import java.util.ArrayDeque;
-import java.util.Collection;
 import java.util.Deque;
-import java.util.List;
 
 /**
- * Represents a Ramp with storage connected to a truck
+ * Represents a models.Ramp with storage connected to a truck
  * @author Rikard Sjöstedt
  * @version 1.0.0
  * @since 1.0.0
@@ -17,7 +17,7 @@ public class Ramp<T extends Transportable> implements Transporter<T>{
 	private final int capacity;
 
 	/**
-	 * Constructor for the Ramp, connects the ramp to a truck and sets initial values.
+	 * Constructor for the models.Ramp, connects the ramp to a truck and sets initial values.
 	 * @param truck the truck to connect the ramp to
 	 * @param capacity the capacity of the storage on/of the ramp
 	 */
@@ -66,10 +66,10 @@ public class Ramp<T extends Transportable> implements Transporter<T>{
 	}
 
 	/**
-	 * Loads the storage of the ramp with entities that are 'Transportable',
+	 * Loads the storage of the ramp with entities that are 'models.Transportable',
    * checks that the entity isn't loaded somewhere else and that it is close to the truck it's getting loaded onto
 	 *
-	 * @param transportable the entity to be loaded onto the Ramp/Storage of the ramp
+	 * @param transportable the entity to be loaded onto the models.Ramp/Storage of the ramp
    * @see Transportable
 	 */
 	public void load(T transportable) {

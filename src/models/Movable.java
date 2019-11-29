@@ -1,3 +1,5 @@
+package models;
+
 /**
  * Methods required for entities that are movable
  *

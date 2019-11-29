@@ -1,7 +1,10 @@
+package graphics;
+
+import models.*;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 /*
  * This class represents the Controller part in the MVC pattern.
@@ -9,7 +12,7 @@ import java.util.ArrayList;
  * modifying the model state and the updating the view.
  */
 
-public class CarController {
+public class VehicleController {
 	// member fields:
 
 	// The delay (ms) corresponds to 20 updates a sec (hz)
@@ -25,15 +28,13 @@ public class CarController {
 
 	public static void main(String[] args) {
 		// Instance of this class
-		CarController cc = new CarController();
+		VehicleController vc = new VehicleController();
 
 		// Start a new view and send a reference of self
-		cc.frame = new CarView("CarSim 1.0", cc);
-
-
+		vc.frame = new CarView("CarSim 1.0", vc);
 
 		// Start the timer
-		cc.timer.start();
+		vc.timer.start();
 	}
 
 	/* Each step the TimerListener moves all the cars in the list and tells the
@@ -42,17 +43,17 @@ public class CarController {
 	private class TimerListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
-				Vehicle car = vehicleGraphic.getCar();
+				Vehicle vehicle = vehicleGraphic.getVehicle();
 				if (
-						(car.getX() + vehicleGraphic.getImage().getHeight() >= frame.drawPanel.getWidth() && car.getDirection() == Direction.EAST) ||
-						(car.getX() <= 0 && car.getDirection() == Direction.WEST) ||
-						(car.getY() + vehicleGraphic.getImage().getHeight() >= frame.drawPanel.getHeight() && car.getDirection() == Direction.NORTH) ||
-						(car.getY() <= 0 && car.getDirection() == Direction.SOUTH)
+						(vehicle.getX() + vehicleGraphic.getImage().getHeight() >= frame.drawPanel.getWidth() && vehicle.getDirection() == Direction.EAST) ||
+						(vehicle.getX() <= 0 && vehicle.getDirection() == Direction.WEST) ||
+						(vehicle.getY() + vehicleGraphic.getImage().getHeight() >= frame.drawPanel.getHeight() && vehicle.getDirection() == Direction.NORTH) ||
+						(vehicle.getY() <= 0 && vehicle.getDirection() == Direction.SOUTH)
 				) {
-					car.turnAround();
+					vehicle.turnAround();
 				}
 
-				car.move();
+				vehicle.move();
 				frame.drawPanel.repaint();
 			}
 		}
@@ -62,52 +63,52 @@ public class CarController {
 	void gas(int amount) {
 		double gas = ((double) amount) / 100;
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
-			vehicleGraphic.getCar().gas(gas);
+			vehicleGraphic.getVehicle().gas(gas);
 		}
 	}
 
 	void brake(int amount) {
 		double brake = ((double) amount) / 100;
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
-			vehicleGraphic.getCar().brake(brake);
+			vehicleGraphic.getVehicle().brake(brake);
 		}
 	}
 
 	void startEngine() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
-			vehicleGraphic.getCar().startEngine();
+			vehicleGraphic.getVehicle().startEngine();
 		}
 	}
 
 	void stopEngine() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
-			vehicleGraphic.getCar().stopEngine();
+			vehicleGraphic.getVehicle().stopEngine();
 		}
 	}
 
 	void turboOn() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
-			Vehicle car = vehicleGraphic.getCar();
-			if (car instanceof Turbo) {
-				((Turbo) car).setTurboOn();
+			Vehicle vehicle = vehicleGraphic.getVehicle();
+			if (vehicle instanceof Turbo) {
+				((Turbo) vehicle).setTurboOn();
 			}
 		}
 	}
 
 	void turboOff() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
-			Vehicle car = vehicleGraphic.getCar();
-			if (car instanceof Turbo) {
-				((Turbo) car).setTurboOff();
+			Vehicle vehicle = vehicleGraphic.getVehicle();
+			if (vehicle instanceof Turbo) {
+				((Turbo) vehicle).setTurboOff();
 			}
 		}
 	}
 
 	void liftBed() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
-			Vehicle car = vehicleGraphic.getCar();
-			if (car instanceof Scania) {
-				Flatbed flatbed = ((Scania) car).getFlatbed();
+			Vehicle vehicle = vehicleGraphic.getVehicle();
+			if (vehicle instanceof Scania) {
+				Flatbed flatbed = ((Scania) vehicle).getFlatbed();
 				flatbed.changeTilt(flatbed.maxTilt);
 			}
 		}
@@ -115,9 +116,9 @@ public class CarController {
 
 	void lowerBed() {
 		for (VehicleGraphic vehicleGraphic : frame.drawPanel.getVehicleGraphics()) {
-			Vehicle car = vehicleGraphic.getCar();
-			if (car instanceof Scania) {
-				Flatbed flatbed = ((Scania) car).getFlatbed();
+			Vehicle vehicle = vehicleGraphic.getVehicle();
+			if (vehicle instanceof Scania) {
+				Flatbed flatbed = ((Scania) vehicle).getFlatbed();
 				flatbed.changeTilt(flatbed.minTilt);
 			}
 		}
