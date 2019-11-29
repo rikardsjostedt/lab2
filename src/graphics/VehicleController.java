@@ -22,7 +22,7 @@ public class VehicleController {
 	private Timer timer = new Timer(delay, new TimerListener());
 
 	// The frame that represents this instance View of the MVC pattern
-	CarView frame;
+	private CarView frame;
 
 	//methods:
 
