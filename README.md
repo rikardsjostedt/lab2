@@ -1,8 +1,8 @@
 # Laboration 2 
 
-##Uppgift 2A
+## Uppgift 2A
 
-###Refaktoriseringsplan
+### Refaktoriseringsplan
 1. Skapa en mainklass där programmets olika komponenter (`DrawPanel`, `VehicleView`, `VehicleController`) initialiseras.
 2. `VehicleGraphic` ska sammankoppla logiken för ett fordon med en bild för det, för att undvika separata listor med information.
 3. Skapa `VehicleGraphics` från controllern istället för i `DrawPanel` då den logiken inte hör hemma där.
